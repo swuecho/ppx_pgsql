@@ -1,5 +1,5 @@
 open Migrate_parsetree
-open Ast_411
+open Ast_408
 
 open Ast_mapper
 open Ast_helper
@@ -282,7 +282,7 @@ module Build_expr = struct
         [%expr [%e head] :: [%e tail]]
     ) query_fragments [%expr []]
 
-  let exec_query ~loc ~params_mapper_expr ~query_fragments_expr =
+  let exec_query ~params_mapper_expr ~query_fragments_expr =
     [%expr
       let module PGOCamlBind = Ppx_pgsql_runtime.PGOCamlBind(PGOCaml) in
       let params : string option list list = [%e params_mapper_expr] in
@@ -341,7 +341,7 @@ let expand_query loc query =
   let query_fragments_expr =
     Build_expr.query_fragments ~loc query_fragments in
   let exec_query_expr =
-    Build_expr.exec_query ~loc ~params_mapper_expr ~query_fragments_expr in
+    Build_expr.exec_query  ~params_mapper_expr ~query_fragments_expr in
 
   let final_expr = begin
     match results with
