@@ -4,7 +4,7 @@ version: "0.4"
 author: "Bruno Deferrari <utizoc@gmail.com>"
 maintainer: "Bruno Deferrari <utizoc@gmail.com>"
 homepage: "https://github.com/tizoc/ppx_pgsql"
-synopsis: "Syntax extension for embedded SQL queries using PG'OCaml."
+synopsis: "Syntax extension for embedded SQL queries using PG'OCaml"
 license: "BSD-3"
 build: [
   ["dune" "build" "-p" name "-j" jobs]
